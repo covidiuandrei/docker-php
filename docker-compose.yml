@@ -1,0 +1,22 @@
+version: '2'
+services:
+
+  # The Application
+  api:
+    image: backend-test
+    build:
+      context: ./
+      dockerfile: ./backend/api-test.dockerfile
+    working_dir: /var/www
+    ports:
+      - 8080:9000
+
+  # The App Web Server with Angular6
+  app:
+    image: frontend-test
+    build:
+      context: ./
+      dockerfile: ./frontend/app-test.dockerfile
+    working_dir: /var/www
+    ports:
+      - 80:80
